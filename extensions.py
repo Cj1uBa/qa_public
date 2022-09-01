@@ -17,7 +17,7 @@ class MoneyConvertor :
         try: cash=float(cash)
         except ValueError:
             raise ConvertionException(f'Не удалось обработать количество {cash}')
-        
+        if cash<0:raise ConvertionException(f'Введено отрицательное число {cash}')
         r=requests.get(f'https://min-api.cryptocompare.com/data/price?fsym={first_ticker}&tsyms={second_tiker}')
         total_base=json.loads(r.content)[keys[second]]
         return total_base
