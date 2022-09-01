@@ -31,6 +31,6 @@ def convert(message: telebot.types.Message):
     except Exception as e:
         bot.reply_to(message,f'Неудалось обработать команду. \n{e}')
     else:
-        text=f'Цена {cash} {first} в {second} - {float(total_base)*float(cash)}'
+        text=f'Цена {cash} {first} в {second} = {float(total_base)*float(cash)}'
         bot.send_message(message.chat.id,text)
 bot.polling()
